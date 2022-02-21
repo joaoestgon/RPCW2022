@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jacarés</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="w3.css">
+        <style> body, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif, Verdana, sans-serif;
+          }
+          body {
+            background-image: url("imgs/fundo.jpeg");
+          }
+
+          .row {
+                display: flex;
+                }
+
+                /* Create three equal columns that sits next to each other */
+                .column {
+                flex: 50%;
+                padding: 100px;
+                }
+
+           .mySlides {display:none;}
+          </style>
+    </head>
+    <body>
+        <div class="w3-panel w3-grey w3-display-container">
+            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">X</span>
+            <p><b>Nota:</b> Todas as informações foram retiradas da <a href="https://pt.wikipedia.org/wiki/Jacar%C3%A9"> Wikipédia</a></p>
+          </div>
+          <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+            <p>
+              <h1>
+                <img src="imgs/jacare_logo.png">
+              </h1>
+            </p>
+    
+          </div>
+            <div class="w3-cell-row">
+
+                <div class="w3-container w3-cell">
+                <p><img src="imgs/wiki_img.jpg"></p>
+                </div>
+            
+                <div class="w3-container w3-cell">
+
+                    <ul class="w3-ul w3-white">
+                        <p>Jacaré, também chamado aligátor e caimão, são crocodilianos da família Alligatoridae, sendo muito parecidos com os crocodilos, dos quais 
+                          se distinguem pela cabeça mais curta e larga e pela presença de membranas interdigitais nos polegares das patas traseiras. Diferenciam-se 
+                          dos crocodilos ainda com relação à dentição, o quarto dente canino da mandíbula inferior encaixa num furo da mandíbula superior, 
+                          enquanto que nos crocodilos sobressai para fora, quando têm a boca fechada. O tamanho de um jacaré pode variar de 1,2 metros 
+                          (jacaré-anão) até 5,5 metros (jacaré-açu), podendo pesar de 6 Kg a 600 Kg.
+
+                          Os jacarés habitam as Américas, tendo desaparecido da Europa no Plioceno. Na América do Norte, apenas habitam da tipo Alligator.</p>
+                    </ul>
+                </div>
+          </div>
+          <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+            <p>
+              <h2>
+                <b>Saber mais...</b>
+              </h2>
+            </p>
+            <p>Selecione um tópico:</p>
+        </div>
+
+
+            <div class="w3-bar w3-green">
+                <button class="w3-bar-item w3-button" onclick="openCategory('et')">Etimologia</button>
+                <button class="w3-bar-item w3-button" onclick="openCategory('ct')">Características</button>
+                <button class="w3-bar-item w3-button" onclick="openCategory('dg')">Distribuição geográfica</button>
+
+            </div>
+            <!-- Etimologia -->
+            <div id="et" class="w3-container category w3-white">
+                <h2>Etimologia</h2>
+                <p>O termo "jacaré" se origina do termo tupi "îakaré", ou "jaeça-karé", que significa "aquele que olha de lado" O termo "aligátor" origina do 
+                  termo inglês "alligator", que provavelmente é uma forma anglicanizada do espanhol "el lagarto". Algumas variações antigas da escrita em inglês 
+                  incluem "allagarta" e "alagarto". Já o termo "caimão" se origina do termo taino "kaiman". Caimão é um nome comum a diversos jacarés americanos do 
+                  género Caiman.
+                </p>
+            </div>
+            <!-- Características -->
+            <div id="ct" class="w3-container category w3-white" style="display:none">
+              <h2>Características</h2>      
+              <p>Os jacarés se diferenciam dos crocodilos por possuírem uma cabeça mais curta e mais larga, com focinhos mais avantajados. Jacarés ingerem carne e peixe.
+                O menor jacaré é o jacaré-anão, cujo comprimento varia entre 1,2 e 1,4 metros e pesa de 6 a 7 quilogramas. O aligátor-americano tem um tamanho 
+                médio de 3 a 4,6 metros, chegando até 5,3 metros e 400 quilogramas. O tamanho médio do jacaré-açu é de 2,8 a 4,2 metros, podendo alcançar os 
+                6 metros e mais de 400 quilogramas.
+              </p>
+            <!-- Distribuição Geográfica -->
+            <div id="dg" class="w3-container category w3-white" style="display:none"> 
+              <h2>Distribuição Geográfica</h2>      
+              <p>O aligátor-americano (Alligator mississippiensis) é uma espécie típica dos Estados Unidos. O aligátor-chinês (Alligator sinensis) é encontrado no 
+                leste da China, na região do rio Yangtzé. Os jacarés da subfamília Caimaninae são encontrados na América do Sul, porém o jacaretinga 
+                (Caiman crocodilus) também é encontrado na América Central e sul do México.
+              </p>
+            </div>
+    
+        
+    </body>
+</html>
