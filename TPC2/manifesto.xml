@@ -1,1 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo>TPC2: Página Web de Exposição de Filmes</titulo>
+        <data>2022-02-28</data>
+        <autor>
+            <id>pg46535</id>
+            <nome>João Esteves Gonçalves</nome>
+        </autor>
+        <uc>
+            <sigla>RCPW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome>
+        </uc>
+    </meta>
+    <resumo>
+        <p>A página de ve ler um ficheiro JSON e criar páginas html para cada filme.</p>
+        <p>Gestão de ficheiros feita no server.</p>
+        <p>Acesso à página de um filme: 
+            <xref>
+                <url>localhost:7777/filmes/f[nr. entre 0 e 4565]</url>
+                <texto>pagina html do filme selecionado</texto>
+            </xref>.
+        </p>
+        <p>Para ver todos os filmes: 
+            <xref>
+                <url>localhost:7777/filmes</url>
+                <texto>pagina html com lista dos filmes</texto>
+            </xref>.
+        </p>
+    </resumo>
+    <resultados>
+        <resultado>
+            <url>
 
+            </url>
+            <texto>
+            
+            </texto>
+        </resultado>
+        </resultado>
+    </resultados>
+</doc>
