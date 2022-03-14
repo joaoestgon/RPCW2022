@@ -5,23 +5,66 @@ const axios = require('axios');
 
 function generateMainPage()
 {
-    page="<body> Exemplo de Conteudo </body>"
+    page='<html>\n ' + 
+        '<head>\n' + 
+            '<meta charset="UTF-8"/>\n'+
+        '</head>\n'+
+        '<body>' +
+        
+            '<li><h3><a href="http://localhost:4000/alunos"> Lista de Alunos </a></h3></li>'+
+            '<li><h3><a href="http://localhost:4000/instrumentos"> Lista de Instrumentos </a></h3></li>'+
+            '<li><h3><a href="http://localhost:4000/cursos"> Lista de Cursos </a> </h3></li>'+
+        
+         '</body>'+
+         '</html>'
 
     return page;
 }
 
-function generateTabelaCursosPage()
+async function generateTabelaCursosPage()
 {
-    axios.get('http://localhost:3000/cursos')
+    page =  '<html>\n' + 
+    '<head>\n' + 
+        '<meta charset="UTF-8"/>\n'+
+    '</head>\n'+
+    '<body>' +
+    '<h1>Tabela de Cursos</h1>' +
+        '<table border==\"1\">' +
+        '<tr>' +
+            '<td>Id</td>' + '<td>Designação</td> ' + '<td>Duração</td>' + '<td>Instrumento</td>'
+        '</tr>'
+
+await axios.get('http://localhost:3000/cursos')
     .then(function(resp) {
-        alunos = resp.data;
-        alunos.forEach(c => {
-            console.log(`${c.id}, ${c.designacao}, ${c.duracao}, ${c.instrumento['#text']}`);
+        instrumentos = resp.data;
+        instrumentos.forEach(c => {
+            page += '<tr>'
+            designacao = `${c.designacao}`
+            duracao = `${c.duracao}`
+            instrumento = `${c.instrumento['#text']}`
+
+            page += '<td>' +
+                    id +
+                    '</td><td>' +
+                    designacao +
+                    '</td><td>' +
+                    duracao +
+                    '</td><td>' +
+                    instrumento +
+                    '</td>'   
+            page += '</tr>'
         });
+
+        page += '</tr>'
+
     })
     .catch(function(error) {
         console.log(error);
     });
+
+    page += '</table></body></html';
+
+    return page;
 
     /*
     "id": "CB6",
@@ -32,24 +75,59 @@ function generateTabelaCursosPage()
         "#text": "Flauta"
     }
     */
-
-    page="<body> Exemplo de Conteudo Cursos </body>"
-
-    return page;
 }
 
-function generateTabelaAlunosPage()
+async function generateTabelaAlunosPage()
 {
-    axios.get('http://localhost:3000/alunos')
+    page =  '<html>\n' + 
+    '<head>\n' + 
+        '<meta charset="UTF-8"/>\n'+
+    '</head>\n'+
+    '<body>' +
+    '<h1>Tabela de Alunos</h1>' +
+        '<table border==\"1\">' +
+        '<tr>' +
+            '<td>Id</td>' + '<td>Nome</td> ' + '<td>Data de Nascimento</td>' + '<td>Curso</td>' + '<td>Ano de Curso</td>' + '<td>Instrumento</td>'
+        '</tr>'
+
+await axios.get('http://localhost:3000/alunos')
     .then(function(resp) {
-        alunos = resp.data;
-        alunos.forEach(p => {
-            console.log(`${p.id}, ${p.nome}, ${p.dataNasc}, ${p.curso}, ${p.anoCurso}, ${p.instrumento}`);
+        instrumentos = resp.data;
+        instrumentos.forEach(a => {
+            page += '<tr>'
+            id = `${a.id}`
+            nome = `${a.nome}`
+            dataNasc = `${a.dataNasc}`
+            curso = `${a.curso}`
+            anoCurso = `${a.anoCurso}`
+            instrumento = `${a.instrumento}`
+
+            page += '<td>' +
+                    id +
+                    '</td><td>' +
+                    nome +
+                    '</td><td>' +
+                    dataNasc +
+                    '</td><td>' +
+                    curso +
+                    '</td><td>' +
+                    anoCurso +
+                    '</td><td>' +
+                    instrumento +
+                    '</td>'   
+            page += '</tr>'
         });
+
+        page += '</tr>'
+
     })
     .catch(function(error) {
         console.log(error);
     });
+
+    page += '</table></body></html';
+
+    return page;
 
     /*
     "id": "A38204",
@@ -59,36 +137,53 @@ function generateTabelaAlunosPage()
     "anoCurso": "1",
     "instrumento": "Fliscorne"
     */
-
-    page="<body> Exemplo de Conteudo Alunos </body>"
-
-    return page;
 }
 
-function generateTabelaInstrumentosPage()
+async function generateTabelaInstrumentosPage()
 {
-    axios.get('http://localhost:3000/instrumentos')
+    page =  '<html>\n' + 
+            '<head>\n' + 
+                '<meta charset="UTF-8"/>\n'+
+            '</head>\n'+
+            '<body>' +
+            '<h1>Tabela de Instrumentos</h1>' +
+                '<table border==\"1\">' +
+                '<tr>' +
+                    '<td>Id</td>' + '<td>Nome</td> ' +
+                '</tr>'
+    
+    await axios.get('http://localhost:3000/instrumentos')
     .then(function(resp) {
-        alunos = resp.data;
-        alunos.forEach(i => {
-            console.log(`${i.id}, ${i['#text']}`);
+        instrumentos = resp.data;
+        instrumentos.forEach(i => {
+            page += '<tr>'
+            id = `${i.id}`
+            nome = `${i['#text']}`
+            id2 = i.id
+            nome2 = i['#text']
+
+            page += '<td>' +
+                    id2 +
+                    '</td><td>' +
+                    nome2 +
+                    '</td>'
+            
+            page += '</tr>'
+
+            //console.log(`${i.id}, ${i['#text']}`);
         });
+        page += '</tr>'
     })
     .catch(function(error) {
         console.log(error);
     });
 
-    /*
-    "id": "I1",
-    "#text": "Clarinete"
-    */
-
-    page="<body> Exemplo de Conteudo Instrumentos </body>"
-
+    page += '</table></body></html';
+    console.log(page)
     return page;
 }
 
-http.createServer(function(req, res){
+http.createServer( async function(req, res){
     var d = new Date().toISOString().substring(0,16)
     console.log(req.method + "" + req.url + " " + d)
     var myurl = url.parse(req.url, true).pathname
@@ -99,15 +194,15 @@ http.createServer(function(req, res){
         res.end()
     }else if(myurl == "/cursos"){
         res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write(generateTabelaCursosPage())
+        res.write(await generateTabelaCursosPage())
         res.end()
     }else if(myurl == "/alunos"){
         res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write(generateTabelaAlunosPage())
+        res.write(await generateTabelaAlunosPage())
         res.end()
     }else if(myurl == "/instrumentos"){
         res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write(generateTabelaInstrumentosPage())
+        res.write(await generateTabelaInstrumentosPage())
         res.end()
     }
     else{
