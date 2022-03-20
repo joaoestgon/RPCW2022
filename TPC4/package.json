@@ -1,0 +1,12 @@
+{
+  "name": "gtarefas",
+  "version": "1.0.0",
+  "description": "Gestor de Tarefas para o TPC4",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "João Gonçalves - PG46535",
+  "license": "ISC"
+}
