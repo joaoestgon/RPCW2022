@@ -39,7 +39,7 @@ function geraPagTarefas( alunos, d){
                 <div id="addtarefa">
                     <input type="text" placeholder="NovaTarefa">
                     <button id="add_button"> + </button>
-                <div >
+                </div>
                 <div id="tarefas"></div> 
             </div>
 

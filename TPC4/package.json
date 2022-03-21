@@ -8,5 +8,8 @@
     "start": "node server.js"
   },
   "author": "João Gonçalves - PG46535",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
 }
