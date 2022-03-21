@@ -37,44 +37,69 @@ function geraPagTarefas( alunos, d){
         <body>
             <div class="container">
                 <div id="addtarefa">
-                    <input type="text" placeholder="NovaTarefa">
+                    <input type="text" placeholder="Adicionar nova tarefa...">
                     <button id="add_button"> + </button>
                 </div>
                 <div id="tarefas"></div> 
             </div>
 
             <div class="w3-container w3-teal">
-                <h2>Lista de Alunos</h2>
+                <h2>Lista de Tarefas</h2>
             </div>
-            <table class="w3-table w3-bordered">
+            `
+    
+    pagHTML += `
+            <table class="w3-table w3-bordered" id="temprogresso">
                 <tr>
-                    <th>Nome</th>
-                    <th>Id</th>
-                    <th>Git</th>
+                    <th>Tarefas em Progresso</th>
                 </tr>
-  `
-  /* ----------------------------------------------------
-     To be replaced with code to generate the table rows
-     ---------------------------------------------------- */
+                `
 
-     alunos.forEach(a => {
-         pagHTML += ` <tr>
-                        <td><a href="http://localhost:4004/alunos/${a.Id}">${a.Nome}</a></td>
-                        <td>${a.Id}</td>
-                        <td>${a.Git}</td>
-                    </tr>
-        `
+     alunos.forEach(t => {
+        
+        if(t.estado == 0)
+        {
+            pagHTML += ` <tr>
+                <td><a href="http://localhost:4004/tarefas/${t.id}">${t.desc}    <button id="edit_button"> Edit </button><button id="del_button"> X </button></a></td>
+                </tr>
+                `
+        }
      });
 
-  pagHTML += `
-        </table>
+     pagHTML += '</table>'
+
+     pagHTML += `
+                <table class="w3-table w3-bordered" id="trealizadas">
+                     <tr>
+                         <th>Tarefas Realizadas</th>
+                     </tr>
+                     `
+            
+                alunos.forEach(t => {
+                    
+                    if(t.estado == 1)
+                    {
+                        pagHTML += ` <tr>
+                            <td><a href="http://localhost:4004/tarefas/${t.id}">${t.desc}    <button id="del_button"> X </button></a></td>
+                            </tr>
+                            `
+                    }
+                });
+
+
+
+    pagHTML += '</table>'
+    
+    
+
+    pagHTML += ` 
         <div class="w3-container w3-teal">
             <address>Gerado por gtarefas::2022 em ${d} --------------</address>
         </div>
     </body>
     </html>
-  `
-  return pagHTML
+    `
+    return pagHTML
 }
 
 
