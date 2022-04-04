@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <meta>
+        <titulo> TPC6: Gestor de ficheiros </titulo>
+        <data>2022-04-04</data>
+        <autor>
+            <id>PG46535</id>
+            <nome>João Esteves Gonçalves</nome>
+        </autor>
+        <uc> 
+            <sigla>RPCW2022</sigla>
+            <nome>Representação e Processamento de Conhecimento na Web</nome>
+        </uc>
+    </meta>
+    <resumo>
+        <p> Este TPC tem como objetivo criar um gestor de ficheiros que permita fazer upload de ficheiros novos ou remover já existentes da base de dados.</p>
+    </resumo>
+    <resultados>
+        <resultado><url>/uploads/</url><texto>Pasta onde são guardados os ficheiros</texto></resultado>
+        <resultado><url>/views/index.pug</url><texto>View da página principal</texto></resultado>
+        <resultado><url>/controllers/ficheiro.js</url><texto>ligação à bd</texto></resultado>
+        <resultado><url>/routes/index.js</url><texto>Rotas</texto></resultado>
+        <resultado><url>/models/ficheiro.js</url><texto>Schema da base de dados</texto></resultado>
+        <resultado><url>http://localhost:3029/</url><texto>Acesso à página principal</texto></resultado>
+        <resultado><url>ficheiros.json</url><texto>Json Exemplo</texto></resultado>
+    </resultados>
+</doc>
